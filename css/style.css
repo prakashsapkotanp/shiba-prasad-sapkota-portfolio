@@ -1,0 +1,234 @@
+/* Simple, modern, 2-color palette */
+:root {
+  --navy: #0b2545;
+  --accent: #0fb2a6;
+  --soft-gray: #f4f6f8;
+  --max-width: 1100px;
+  --radius: 12px;
+  font-family: "Roboto", system-ui, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+body {
+  margin: 0;
+  color: var(--navy);
+  background: var(--soft-gray);
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(10,15,25,.06);
+  z-index: 20;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 1rem;
+}
+.logo {
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  font-family: "Merriweather", serif;
+  font-size: 1.1rem;
+}
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+.nav a {
+  color: var(--navy);
+  text-decoration: none;
+  padding: .45rem .6rem;
+  border-radius: 8px;
+  transition: background .18s;
+}
+.nav a:hover, .nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.2rem;
+}
+
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(11,37,69,.08);
+  border: 4px solid #fff;
+  background: #eee;
+}
+.hero-text h1 {
+  font-family: "Merriweather", serif;
+  margin: .2rem 0 0;
+  font-size: 2rem;
+}
+.role {
+  color: var(--accent);
+  margin: .3rem 0;
+}
+.bio {
+  color: var(--navy);
+  max-width: 55ch;
+}
+.btn {
+  background: var(--accent);
+  color: #fff;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: background .18s;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--navy);
+}
+.btn:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+
+.highlights .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.paper-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(11,37,69,.04);
+  margin-bottom: 1rem;
+}
+.paper-actions {
+  display: flex;
+  gap: .5rem;
+  margin-top: .6rem;
+}
+
+
+.meta {
+  color: var(--navy);
+  font-size: .95rem;
+}
+.desc {
+  color: var(--accent);
+}
+
+/* Footer */
+
+.site-footer {
+  background: #fff;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid #eef2f7;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(11,37,69,.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal[open], .modal.show {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  height: 80vh;
+}
+.modal-close {
+  align-self: flex-end;
+  background: none;
+  border: 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+#pdfFrame {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* contact form */
+
+.contact-form {
+  display: grid;
+  gap: .8rem;
+  max-width: 700px;
+}
+.contact-form label {
+  display: block;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: .6rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  font-size: 1rem;
+}
+.error {
+  color: #c2410c;
+  font-size: .85rem;
+  height: 18px;
+  display: block;
+}
+.form-actions {
+  display: flex;
+  gap: .6rem;
+}
+.form-success {
+  margin-top: .6rem;
+  color: var(--accent);
+}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .nav{display:none}
+  .menu-toggle{display:block}
+  .header-inner{padding:1rem}
+}

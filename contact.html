@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Shiba Prasad Sapkota</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Success message styling */
+    .form-success {
+
+      display: none;
+    }
+
+    .visible {
+      color: green;
+      font-weight: bold;
+      margin-top: 1em;
+      display: block !important; /* Show message */
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Shiba Prasad Sapkota</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="articles.html">Articles</a>
+        <a href="teaching.html">Teaching</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Contact</h1>
+    <p>Use the form below to reach out.</p>
+
+    <form id="contactForm" class="contact-form" novalidate>
+      <label>
+        Name
+        <input type="text" name="name" id="name" required minlength="2" />
+        <span class="error" id="errName"></span>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" id="email" required />
+        <span class="error" id="errEmail"></span>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" id="message" required minlength="10"></textarea>
+        <span class="error" id="errMessage"></span>
+      </label>
+
+      <div class="form-actions">
+        <button class="btn" type="submit">Send</button>
+        <button class="btn ghost" type="reset">Reset</button>
+      </div>
+
+    </form>
+    <div id="formSuccess" class="form-success">Thank you for sending message</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year5"></span> Shiba Prasad Sapkota</div>
+    </div>
+  </footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // Initialize EmailJS with your Public Key (user ID)
+    emailjs.init('ZR_42Vj8-2StEs73x');
+
+    const form = document.getElementById('contactForm');
+    const successDiv = document.getElementById('formSuccess');
+
+
+    
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect form values
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const time = new Date().toLocaleString();
+
+      // Simple client-side validation (optional)
+      if (name.length < 2 || !email || message.length < 10) {
+        alert('Please fill all fields correctly.');
+        return;
+      }
+
+      // Send email using EmailJS service
+      emailjs.send('service_x32hkqp', 'template_i8fxrvf', {
+        name: name,
+        email: email,
+        time: time,
+        message: message
+      }, 'ZR_42Vj8-2StEs73x')
+      .then(function (response) {
+                              form.reset();
+
+        console.log('Email sent successfully:', response);
+      successDiv.classList.add('visible');
+
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successDiv.classList.remove('visible');
+
+        }, 5000);
+
+      })
+      .catch(function (error) {
+        console.error('EmailJS error:', error);
+        alert('Failed to send message. Please try again later.');
+      });
+    });
+
+    // // Hide success message on form reset
+    // form.addEventListener('reset', () => {
+    //   successDiv.classList.remove('visible');
+    // });
+
+    // Set current year in footer
+    document.getElementById('year5').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

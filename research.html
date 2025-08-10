@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research — Shiba Prasad Sapkota</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Shiba Prasad Sapkota</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a class="active" href="research.html">Research</a>
+        <a href="articles.html">Articles</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Research Papers</h1>
+    <p>Below are selected reports and papers. Click <strong>View</strong> to preview in a modal, or <strong>Download</strong> to save the PDF.</p>
+
+    <div class="papers-list">
+      <!-- Paper 1 -->
+      <article class="paper-card">
+        <h3>Financing and Mobilization of Revenue in Higher Educational Institution: A Case of Kailali Multiple Campus</h3>
+        <p class="meta">Author: <strong>Shiba Prasad Sapkota</strong> — June 2020. :contentReference[oaicite:3]{index=3}</p>
+        <p class="desc">A descriptive/analytical study on revenue sources and expenditure effectiveness for Kailali Multiple Campus.</p>
+        <div class="paper-actions">
+          <button class="btn view-btn" data-file="/papers/KMC Mini research 2.pdf">View</button>
+          <a class="btn" href="papers/KMC Mini research 2.pdf" download>Download</a>
+        </div>
+      </article>
+
+      <!-- Paper 2 -->
+      <article class="paper-card">
+        <h3>Impact of Emotional Intelligence on Job Performance Among the Employees of Commercial Bank of Dhangadhi</h3>
+        <p class="meta">Authors: <strong>Shiba Pd. Shapkota, Tek Bahadur Madai, Deepak Raj Pant</strong> — Dec 24, 2022. :contentReference[oaicite:4]{index=4}</p>
+        <p class="desc">Quantitative analysis linking emotional intelligence dimensions to employees' job performance.</p>
+        <div class="paper-actions">
+          <button class="btn view-btn" data-file="/papers/KMC Miniresearch 3.pdf">View</button>
+          <a class="btn" href="papers/KMC Miniresearch 3.pdf" download>Download</a>
+        </div>
+      </article>
+
+      <!-- Paper 3 -->
+      <article class="paper-card">
+        <h3>Fiscal Decentralization and Economic Growth of Sudurpashchim Province</h3>
+        <p class="meta">Authors: <strong>Dr. Rajendra Bir Chand; Dr. Shiba Prasad Sapkota; Tek Bahadur Madai; Deepak Raj Pant</strong> — June 2024. :contentReference[oaicite:5]{index=5}</p>
+        <p class="desc">Research report analyzing provincial fiscal decentralization and its effects on economic growth.</p>
+        <div class="paper-actions">
+          <button class="btn view-btn" data-file="/papers/SDM Report.pdf">View</button>
+          <a class="btn" href="papers/SDM Report.pdf" download>Download</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year2"></span> Shiba Prasad Sapkota</div>
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=NvjoC4oAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal preview -->
+  <div id="pdfModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close preview">✕</button>
+      <iframe id="pdfFrame" src="" title="PDF preview" frameborder="0"></iframe>
+      <div class="modal-actions">
+        <a id="modalDownload" class="btn" href="#" download>Download</a>
+        <a id="openInNew" class="btn ghost" href="#" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
